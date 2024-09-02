@@ -3,9 +3,9 @@ provider "aws" {
 }
 
 variables {
-  aws_region = "us-east-1"
+  aws_region             = "us-east-1"
   github_repository_name = "terraform-test-repository"
-  email = "fezf00+terraform-module@gmail.com"
+  email                  = "fezf00+terraform-module@gmail.com"
 }
 
 run "setup" {
