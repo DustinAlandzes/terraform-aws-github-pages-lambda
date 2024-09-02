@@ -6,6 +6,10 @@ terraform {
       source  = "hashicorp/archive"
       version = "2.5.0"
     }
+    random = {
+      source  = "hashicorp/random"
+      version = "3.6.2"
+    }
     aws = {
       source  = "hashicorp/aws"
       version = "5.65.0"
@@ -23,7 +27,7 @@ provider "aws" {
 
 # https://advancedweb.hu/how-to-use-unique-resource-names-with-terraform/#:~:text=There%20is%20a%20terraform%20resource,%7B%20function_name%20%3D%20%22%24%7Brandom_id.
 resource "random_id" "id" {
-	  byte_length = 8
+  byte_length = 8
 }
 
 data "aws_iam_policy_document" "github_actions_update_pages_and_lambda" {
