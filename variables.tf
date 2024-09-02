@@ -1,9 +1,3 @@
-variable "aws_region" {
-  type        = string
-  default     = "us-east-1"
-  description = "AWS Region"
-}
-
 variable "github_repository_name" {
   type        = string
   description = "Name of the Github repository that will be created."
