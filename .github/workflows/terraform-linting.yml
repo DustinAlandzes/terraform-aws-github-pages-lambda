@@ -1,4 +1,4 @@
-name: Terraform linting
+name: Terraform linting and testing
 on:
   push:
     branches:
@@ -46,3 +46,6 @@ jobs:
 
     - name: Run TFLint
       run: tflint --call-module-type=all -f compact
+
+    - name: Run Tests
+      run: terraform test
