@@ -21,10 +21,6 @@ terraform {
   }
 }
 
-provider "aws" {
-  region = var.aws_region
-}
-
 # https://advancedweb.hu/how-to-use-unique-resource-names-with-terraform/#:~:text=There%20is%20a%20terraform%20resource,%7B%20function_name%20%3D%20%22%24%7Brandom_id.
 resource "random_id" "id" {
   byte_length = 8
