@@ -1,4 +1,4 @@
-name: Terraform linting
+name: Terraform linting and testing
 on:
   push:
     branches:
@@ -6,6 +6,8 @@ on:
   pull_request:
     branches:
       - main
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
 jobs:
   lint:
@@ -46,3 +48,13 @@ jobs:
 
     - name: Run TFLint
       run: tflint --call-module-type=all -f compact
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ vars.AWS_REGION }}
+
+    - name: Run Tests
+      run: terraform test
