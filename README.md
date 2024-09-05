@@ -8,7 +8,6 @@ A Terraform module for quickly creating a website with a form you can submit tha
     * https://registry.terraform.io/providers/integrations/github/latest/docs#authentication
 2. Add these requirements and the module to your Terraform configuration:
    ```
-   
    terraform {
      required_providers {
        archive = {
